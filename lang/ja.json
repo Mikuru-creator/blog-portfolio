@@ -1,4 +1,5 @@
 {
+    "Welcome": "ようこそ",
     "Name": "名前",
     "Profile": "アカウント",
     "Profile Information": "アカウント情報",
@@ -52,7 +53,11 @@
     "Send password reset link": "パスワードリセットメールを送信",
     "This is a secure area of the application. Please confirm your password before continuing.": "認証確認が必要なページのため、パスワードを入力して確認ボタンをクリックしてください",
     "Confirm": "確認",
+    "Admin Dashboard": "れたすとまる　管理画面",
     "Dashboard": "管理画面",
+    "Post Index": "投稿一覧画面",
+    "Add User": "新規ユーザー登録",
+    "New Post": "新規投稿フォーム",
     "Manage Team": "チーム管理",
     "Team Settings": "チーム設定",
     "Create New Team": "新規チーム作成",
