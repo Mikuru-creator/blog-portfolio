@@ -1,7 +1,8 @@
 # Inko Blog（portfolio）
 
-ポートフォリオ用にLaravelで作った自分のペット（インコ）のブログサイトです。
+ポートフォリオ用にLaravelで作った自分のペット（インコ）のブログサイトです。<br>
 Livewireスターターキットを使用しました。
+<img width="1919" height="986" alt="Image" src="https://github.com/user-attachments/assets/77bb07d8-8016-4c11-bb21-b612c0316c31" />
 
 ## 主な機能
 - 公開：TOP / 投稿一覧 / 投稿詳細（コメント投稿）/ ギャラリー
