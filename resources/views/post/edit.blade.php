@@ -57,7 +57,7 @@
                                         </div>
 
                                         <div class="mt-2 flex items-center gap-2 text-sm">
-                                            <input type="checkbox" name="delete_images[]" value="{{ $img->id }}">
+                                            <input type="checkbox" name="delete_image_ids[]" value="{{ $img->id }}">
                                             <span class="text-gray-700">この画像を削除</span>
                                         </div>
                                     </label>
@@ -95,21 +95,31 @@
                 @else
                     <div class="mt-3 space-y-3">
                         @foreach($post->comments->sortByDesc('created_at') as $comment)
-                            <div class="rounded-xl border border-gray-200 p-3">
-                                <div class="text-sm text-gray-800 whitespace-pre-wrap">{{ $comment->body }}</div>
+                            <div class="rounded-xl border border-gray-200 p-4">
+                                <div class="flex items-start justify-between gap-4">
+                                    <div class="min-w-0 flex-1">
+                                        <p class="text-sm font-semibold text-gray-800">
+                                            {{ $comment->name }}
+                                        </p>
 
-                                <div class="mt-2 flex items-center justify-between text-xs text-gray-500">
-                                    <span>{{ optional($comment->created_at)->format('Y-m-d H:i') }}</span>
-                
-                                    <form method="POST" action="{{ route('comment.destroy', [$post, $comment]) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                                onclick="return confirm('このコメントを削除しますか？')"
-                                                class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3 py-1.5 hover:brightness-95">
-                                            削除
-                                        </button>
-                                    </form>
+                                        <p class="mt-2 text-sm text-gray-800 whitespace-pre-wrap text-left">{{ $comment->comment }}</p>
+                                    </div>
+
+                                    <div class="shrink-0 text-right">
+                                        <p class="text-xs text-gray-500">
+                                            {{ optional($comment->created_at)->format('Y-m-d H:i') }}
+                                        </p>
+
+                                        <form method="POST" action="{{ route('comment.destroy', [$post, $comment]) }}" class="mt-3">
+                                            @csrf
+                                            @method('DELETE')
+                                            <flux:button type="submit"
+                                                    onclick="return confirm('このコメントを削除しますか？')"
+                                                    class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3 py-1.5 hover:brightness-95">
+                                                削除
+                                            </flux:button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

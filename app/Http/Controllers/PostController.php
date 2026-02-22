@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->get();
+        $posts = Post::with('images')->latest()->paginate(10);
         return view('post.index',compact('posts'));
     }
 
@@ -72,9 +72,11 @@ class PostController extends Controller
         ]);
         
         $deleteIds = $request->input('delete_image_ids', []);
-        $deleteCount = empty($deleteIds)
-            ? 0
-            : $post->images()->whereIn('id', $deleteIds)->count();
+        if (empty($deleteIds)) {
+            $deleteCount = 0;
+        } else {
+            $deleteCount = $post->images()->whereIn('id', $deleteIds)->count();
+        }
 
         $currentCount = $post->images()->count();
         $remainCount = $currentCount - $deleteCount;
@@ -124,7 +126,6 @@ class PostController extends Controller
         DB::transaction(function () use ($post) {
             foreach ($post->images as $img) {
                 Storage::disk('public')->delete($img->img_path);
-                $img->delete();
             }
             $post->delete();
         });
