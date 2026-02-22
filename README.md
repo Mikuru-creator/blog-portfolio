@@ -1,6 +1,6 @@
 # Inko Blog（portfolio）
 
-ポートフォリオ用にLaravelで作った自分のペット（インコ）のブログサイトです。
+ポートフォリオ用にLaravelで作った自分のペットのブログサイト(れたすとまる)です。
 
 <p>
     <img width="32%" alt="Image" src="https://github.com/user-attachments/assets/77bb07d8-8016-4c11-bb21-b612c0316c31" />
