@@ -23,7 +23,7 @@ test('two factor settings page can be rendered', function () {
         ->get(route('two-factor.show'))
         ->assertOk()
         ->assertSee(__('Two Factor Authentication'))
-        ->assertSee('Disabled');
+        ->assertSee(__('Disabled'));
 });
 
 test('two factor settings page requires password confirmation when enabled', function () {
